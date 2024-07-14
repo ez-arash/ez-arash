@@ -1,0 +1,165 @@
+In C programming, variables are used to store data that can be manipulated during program execution. Here’s a comprehensive overview of variables in C:
+
+Declaration and Initialization
+Declaration:
+To declare a variable in C, you need to specify the data type followed by the variable name.
+
+c
+Copy code
+int age;
+float salary;
+char grade;
+Initialization:
+Variables can be initialized at the time of declaration.
+
+c
+Copy code
+int age = 25;
+float salary = 45000.50;
+char grade = 'A';
+Data Types
+Basic Data Types:
+
+int: Integer numbers
+float: Floating-point numbers
+double: Double-precision floating-point numbers
+char: Single characters
+Derived Data Types:
+
+Arrays: Collection of elements of the same data type.
+c
+Copy code
+int numbers[5];
+Pointers: Variables that store the address of another variable.
+c
+Copy code
+int *ptr;
+Structures: Custom data types that group different data types.
+c
+Copy code
+struct Student {
+    int id;
+    char name[50];
+    float marks;
+};
+Unions: Similar to structures but with shared memory.
+c
+Copy code
+union Data {
+    int i;
+    float f;
+    char str[20];
+};
+Enumeration:
+
+Enum: User-defined data type consisting of integral constants.
+c
+Copy code
+enum Day {Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday};
+Variable Scope
+Local Variables:
+
+Declared inside a function or block.
+Accessible only within that function or block.
+c
+Copy code
+void func() {
+    int localVar = 10;
+}
+Global Variables:
+
+Declared outside of all functions.
+Accessible from any function within the same file.
+c
+Copy code
+int globalVar = 20;
+
+void func() {
+    // Can access globalVar
+}
+Static Variables:
+
+Local static variables retain their value between function calls.
+Global static variables are accessible only within the same file.
+c
+Copy code
+void func() {
+    static int count = 0;
+    count++;
+}
+External Variables:
+
+Declared with extern keyword.
+Used to access global variables across multiple files.
+c
+Copy code
+// file1.c
+int globalVar = 30;
+
+// file2.c
+extern int globalVar;
+Storage Classes
+Automatic (auto):
+
+Default storage class for local variables.
+c
+Copy code
+auto int a = 10; // auto keyword is optional
+Register:
+
+Suggests storing the variable in CPU registers for faster access.
+c
+Copy code
+register int counter = 0;
+Static:
+
+Local static variables retain their value between function calls.
+Global static variables have internal linkage.
+c
+Copy code
+static int count = 0;
+External (extern):
+
+Declares a global variable or function in another file.
+c
+Copy code
+extern int globalVar;
+Constants
+Constants are variables whose values cannot be changed during program execution. They are declared using the const keyword.
+
+c
+Copy code
+const int MAX = 100;
+Alternatively, #define preprocessor directive can be used to define constants.
+
+c
+Copy code
+#define PI 3.14159
+Examples
+c
+Copy code
+#include <stdio.h>
+
+// Global variable
+int globalVar = 100;
+
+void demonstrateVariables() {
+    // Local variable
+    int localVar = 50;
+    
+    // Static variable
+    static int staticVar = 0;
+    staticVar++;
+    
+    // Print variables
+    printf("Local Variable: %d\n", localVar);
+    printf("Static Variable: %d\n", staticVar);
+    printf("Global Variable: %d\n", globalVar);
+}
+
+int main() {
+    demonstrateVariables();
+    demonstrateVariables(); // Static variable retains its value
+    return 0;
+}
+This example demonstrates the use of local, static, and global variables and how their scope and lifetime differ in a C program.
